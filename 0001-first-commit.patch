@@ -1,0 +1,57 @@
+From edcd56602c8538e8ccb951e72d353168ec9f3aff Mon Sep 17 00:00:00 2001
+From: Anoumahna <anoumahna.98@gmail.com>
+Date: Wed, 17 Jul 2019 22:53:45 +0530
+Subject: [PATCH] first commit
+
+---
+ TryStash/WordNet.py | 37 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+ create mode 100644 TryStash/WordNet.py
+
+diff --git a/TryStash/WordNet.py b/TryStash/WordNet.py
+new file mode 100644
+index 0000000..46b133d
+--- /dev/null
++++ b/TryStash/WordNet.py
+@@ -0,0 +1,37 @@
++# -*- coding: utf-8 -*-
++"""
++Created on Wed Aug 22 23:40:12 2018
++
++@author: anoum
++"""
++
++from nltk.corpus import wordnet
++temp='program'
++
++syns=wordnet.synsets(temp)
++print(syns)
++print(syns[len(syns)-1].definition())
++#print(syns['program'])
++print(syns[0])
++print(syns[0].name())
++print(syns[0].lemmas())
++print(syns[0].lemmas()[0].name())
++# Getting the Lemma's
++print(syns[0].lemmas())
++print(syns[0].lemmas()[0].name())
++# Getting the Definitions
++print(syns[0].definition())
++
++
++# Getting the Examples
++print(syns[0].examples())
++synonyms = []
++antonyms = []
++
++for syn in wordnet.synsets("good"):
++    for l in syn.lemmas():
++        synonyms.append(l.name())
++        if l.antonyms():
++            antonyms.append(l.antonyms()[0].name())
++print(set(synonyms))
++print(set(antonyms))
+\ No newline at end of file
+-- 
+2.26.2.windows.1
+
